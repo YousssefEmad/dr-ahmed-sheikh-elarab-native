@@ -1,0 +1,285 @@
+/* Service detail pages — Jonny blog layout inside Next shell */
+body.ah-service-detail {
+  background: #272727;
+}
+
+body.ah-service-detail .ah-main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.ah-service-detail .ah-jonny-footer {
+  margin-top: 0;
+}
+
+.ah-service-page.content {
+  width: 100%;
+}
+
+.ah-service-page .blog-list.section {
+  padding: 3rem 0 5rem;
+  margin-top: 90px;
+}
+
+/* Banner */
+.ah-service-banner {
+  position: relative;
+  margin: 0 0 2rem;
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 220px;
+  background: #1a1a1a;
+}
+
+.ah-service-banner__img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.ah-service-banner__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+.ah-service-banner__tag {
+  color: #c5a070;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.ah-service-banner__title {
+  color: #fff;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  line-height: 1.25;
+}
+
+.ah-service-banner__subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  max-width: 36rem;
+}
+
+html[dir="rtl"] .ah-service-banner__overlay {
+  align-items: flex-end;
+  text-align: right;
+}
+
+html[dir="ltr"] .ah-service-banner__overlay {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ah-service-banner ~ .post .ah-service-inline-title {
+  display: none;
+}
+
+/* Meta + title */
+.ah-service-page .post-meta.has-rubric {
+  overflow: hidden;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ah-service-row.is-rtl .post-meta.has-rubric {
+  flex-direction: row-reverse;
+}
+
+.ah-service-page .post-rubric {
+  color: #9a9a9a;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  float: none;
+  margin: 0;
+}
+
+.ah-service-page .post-date {
+  float: none;
+}
+
+.ah-service-page .post-date .time {
+  color: #9a9a9a;
+  font-size: 0.875em;
+}
+
+.ah-service-page .post .post-title {
+  color: #fff;
+  font-size: 1.775em;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+}
+
+/* Body */
+.ah-service-page .text-muted,
+.ah-service-page .ah-service-body {
+  color: #9e9e9e;
+  line-height: 2;
+}
+
+html[dir="rtl"] .ah-service-page .ah-service-body {
+  font-family: "Tajawal", "Cairo", "Segoe UI", Tahoma, sans-serif;
+  text-align: right;
+}
+
+html[dir="ltr"] .ah-service-page .ah-service-body {
+  text-align: left;
+}
+
+.ah-service-page .ah-service-block-heading {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.ah-service-page .ah-service-body p {
+  margin: 0 0 1rem;
+}
+
+.ah-service-page .ah-service-body strong {
+  color: #ddd;
+}
+
+.ah-service-page .ah-service-list {
+  margin: 0.75rem 0 1.25rem;
+  padding-inline-start: 1.25rem;
+}
+
+html[dir="rtl"] .ah-service-page .ah-service-list {
+  padding-inline-start: 0;
+  padding-inline-end: 1.25rem;
+}
+
+.ah-service-page .ah-service-list li {
+  margin-bottom: 0.65rem;
+}
+
+.ah-service-page .ah-service-list strong {
+  color: #c5a070;
+}
+
+/* Sidebar */
+.ah-service-page .secondary .widget {
+  margin-bottom: 2.5rem;
+}
+
+.ah-service-page .widget-title {
+  color: #9a9a9a;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+html[dir="rtl"] .ah-service-page .widget-title {
+  text-align: right;
+}
+
+.ah-service-sidebar-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+.ah-service-page .widget-about-title {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+html[dir="rtl"] .ah-service-page .widget-about-title {
+  text-align: right;
+  font-family: "Tajawal", "Cairo", "Segoe UI", Tahoma, sans-serif;
+}
+
+.ah-service-sidebar-form input,
+.ah-service-sidebar-form textarea {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #3c3c3c;
+  color: #fff;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.65rem;
+}
+
+html[dir="rtl"] .ah-service-sidebar-form input,
+html[dir="rtl"] .ah-service-sidebar-form textarea {
+  text-align: right;
+  font-family: "Tajawal", "Cairo", "Segoe UI", Tahoma, sans-serif;
+}
+
+.ah-service-sidebar-form .btn {
+  display: inline-block;
+  margin-top: 0.25rem;
+  text-decoration: none;
+}
+
+.ah-service-cat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+html[dir="rtl"] .ah-service-cat-list {
+  text-align: right;
+}
+
+.ah-service-cat-list li {
+  margin-bottom: 0.45rem;
+}
+
+.ah-service-cat-list a {
+  color: #9e9e9e;
+  text-decoration: none;
+}
+
+html[dir="rtl"] .ah-service-cat-list a {
+  font-family: "Tajawal", "Cairo", "Segoe UI", Tahoma, sans-serif;
+}
+
+.ah-service-cat-list a:hover,
+.ah-service-cat-list a.is-active {
+  color: #c5a070;
+}
+
+@media (max-width: 991px) {
+  .ah-service-page .blog-list.section {
+    padding-top: 6.5rem;
+  }
+
+  .ah-service-banner__img {
+    height: 220px;
+  }
+
+  .ah-service-page .secondary {
+    margin-top: 2.5rem;
+  }
+}

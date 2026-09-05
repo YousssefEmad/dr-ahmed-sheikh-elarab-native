@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://drahmed-sheikhelarab.com/sitemap.xml
