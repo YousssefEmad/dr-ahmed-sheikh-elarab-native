@@ -9,7 +9,17 @@
 .brand {
   font-size: 0;
 }
-.wpb_animate_when_almost_visible {
+.ah-page-wrap,
+.ah-row,
+.ah-column,
+.ah-column-inner,
+.ah-block {
+  position: static;
+}
+.ah-column {
+  width: 100%;
+}
+.ah-fade-in {
   opacity: 1;
 }
 
@@ -193,7 +203,7 @@ html[dir=rtl] .col-md-offset-1{margin-left:0!important;margin-right:8.33333333%!
 html[dir=rtl] .col-lg-offset-2{margin-left:0!important;margin-right:16.66666667%!important}
 html[dir=rtl] .menu-lang a{margin-left:0!important;margin-right:1.5rem!important}
 html[dir=rtl] .menu-lang a:first-child{margin-right:0!important}
-html[dir=rtl] .wpcf7-form .form-group{text-align:right}
+html[dir=rtl] .ah-contact-form .form-group{text-align:right}
 html[dir=rtl] input,html[dir=rtl] textarea{text-align:right}
 html[dir=ltr] input,html[dir=ltr] textarea{text-align:left}
 html[dir=rtl] .ah-branch-cards a[style*="align-self:flex-start"]{align-self:flex-end!important}
@@ -222,49 +232,11 @@ html[dir=rtl] .ah-chaty-fab__cta::before{left:auto;right:-6px;border-right-color
 html[dir=rtl] .ah-lang-home{right:auto;left:18px}
 
 /* Homepage section backgrounds */
-.vc_custom_1785419390398{background-image: url(assets/images/uploads/2024/07/DRAS5.png !important;
+.ah-skin-about{background-image: url(../images/uploads/2024/07/DRAS5.png) !important;
   }
-.vc_custom_1721412501222{background-image: url(assets/images/uploads/2024/07/DRAS6.png !important;
+.ah-skin-resume{background-image: url(../images/uploads/2024/07/DRAS6.png) !important;
   }
-.vc_custom_1721413285496{background-image: url(assets/images/uploads/2024/07/DRAS6.png !important;
-  }
-.vc_custom_1785416602506{padding-top: 30px !important;
-  padding-right: 30px !important;
-  padding-bottom: 30px !important;
-  padding-left: 30px !important;
-  }
-.vc_custom_1785416611586{border-top-width: 2px !important;
-  padding-top: 10px !important;
-  padding-right: 30px !important;
-  padding-bottom: 10px !important;
-  padding-left: 30px !important;
-  border-top-style: solid !important;
-  }
-.vc_custom_1785416622631{padding-left: 30px !important;
-  }
-.vc_custom_1785416136115{padding-top: 30px !important;
-  padding-right: 30px !important;
-  padding-bottom: 30px !important;
-  padding-left: 30px !important;
-  }
-.vc_custom_1785416441468{border-top-width: 2px !important;
-  padding-top: 10px !important;
-  padding-right: 30px !important;
-  padding-bottom: 30px !important;
-  padding-left: 30px !important;
-  border-top-style: solid !important;
-  }
-.vc_custom_1785417022324{padding-top: 30px !important;
-  padding-right: 30px !important;
-  padding-bottom: 30px !important;
-  padding-left: 30px !important;
-  }
-.vc_custom_1785416710855{border-top-width: 2px !important;
-  padding-top: 10px !important;
-  padding-right: 30px !important;
-  padding-bottom: 30px !important;
-  padding-left: 30px !important;
-  border-top-style: solid !important;
+.ah-skin-contact{background-image: url(../images/uploads/2024/07/DRAS6.png) !important;
   }
 
 /* Branch cards */

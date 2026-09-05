@@ -1,4 +1,4 @@
-/* Service detail pages — Jonny blog layout inside Next shell */
+/* Service detail pages */
 body.ah-service-detail {
   background: #272727;
 }
@@ -9,7 +9,7 @@ body.ah-service-detail .ah-main {
   padding: 0;
 }
 
-body.ah-service-detail .ah-jonny-footer {
+body.ah-service-detail .ah-site-footer {
   margin-top: 0;
 }
 
@@ -104,7 +104,7 @@ html[dir="ltr"] .ah-service-banner__overlay {
   gap: 1rem;
 }
 
-.ah-service-row.is-rtl .post-meta.has-rubric {
+html[dir="rtl"] .ah-service-row .post-meta.has-rubric {
   flex-direction: row-reverse;
 }
 

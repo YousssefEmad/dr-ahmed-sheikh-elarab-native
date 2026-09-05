@@ -1,9 +1,6 @@
 /* ------------------------------------------------------------------------------
 
-  Template Name: Jonny
-  Description: Jonny - One Page HTML Template
-  Author: Murren
-  Author URI: http://themeforest.net/user/murren20
+  Site styles — Dr. Ahmed Sheikh Elarab
   Version: 1.0
   
   1.  Global
@@ -435,20 +432,6 @@ label.error{
   font-weight: 400;
   margin: 0.7em 0 0 0;
 }
-
-span.wpcf7-not-valid-tip{
-	color:#8a8a8a;
-}
-
-div.wpcf7-response-output{
-	margin-left:0;
-	margin-right:0;
-}
-
-div.wpcf7 p{
-	margin-bottom:0;
-}
-
 
 /* 1.4 Buttons */
 
@@ -3325,16 +3308,8 @@ a.brand:focus{
 }
 
 
-ul.wp-block-archives,
-.wp-block-categories,
-.wp-block-latest-posts {
-  padding: 0;
-  list-style-type: none;
-}
-
-ul.wp-block-archives ul,
-.wp-block-categories ul,
-.wp-block-latest-posts ul {
+.ah-widget-list,
+.ah-widget-list ul {
   padding: 0;
   list-style-type: none;
 }
@@ -3343,7 +3318,7 @@ ul.wp-block-archives ul,
   margin-bottom: 3.4em;
 }
 
-.widget_tags{
+.ah-widget-tags{
 	clear:left;
 }
 
@@ -3366,90 +3341,25 @@ ul.wp-block-archives ul,
    list-style:none;
 }
 
-.widget_archive li,
-.widget_categories li,
-.widget_pages li,
-.widget_meta li,
-.widget_recent_entries li,
-.widget_nav_menu li,
-.wp-block-archives li,
-.wp-block-categories li,
-.wp-block-latest-posts li{
+.widget li,
+.ah-widget-list li{
    margin-top:0.5em;
 }
 
-.widget_archive li a,
-.widget_categories li a,
-.widget_pages li a,
-.widget_meta li a,
-.widget_recent_entries li a,
-.widget_nav_menu li a,
-.wp-block-archives li a,
-.wp-block-categories li a,
-.wp-block-latest-posts li a{
+.widget li a,
+.ah-widget-list li a{
    color:inherit;
 }
 
-.widget_archive li a:hover,
-.widget_categories li a:hover,
-.widget_pages li a:hover,
-.widget_meta li a:hover,
-.widget_recent_entries li a:hover,
-.widget_nav_menu li a:hover,
-.wp-block-archives li a:hover,
-.wp-block-categories li a:hover,
-.wp-block-latest-posts li a:hover{
+.widget li a:hover,
+.ah-widget-list li a:hover{
    text-decoration:none;
    color:#c5a070;
 }
 
-.widget_archive li ul,
-.widget_categories li ul,
-.widget_pages li ul,
-.widget_meta li ul,
-.widget_recent_entries li ul,
-.widget_nav_menu li ul{
+.widget li ul,
+.ah-widget-list li ul{
    margin-left:0.8em;
-}
-
-.widget_recent_comments li{
-  color:#fff;
-}
-
-.widget_recent_comments li a{
-	color:#7d7d7d;
-}
-
-.widget_recent_comments li a:hover{
-  color:#c5a070;
-  text-decoration:none;
-}
-
-.widget.widget_calendar table {
-   margin: 0;
-   background:#333;
-   border-color:#4e4e4e;
-   color:#888;
-}
-
-.widget_calendar td,
-.widget_calendar th {
-   line-height: 2.5625;
-   padding: 0;
-   text-align: center;
-   border-color:#4e4e4e9;
-}
-
-.widget_calendar caption {
-   font-weight: 900;
-   margin-bottom: 1em;
-}
-
-.widget_calendar tbody a {
-   background-color:#c5a070;
-   color: #fff;
-   display: block;
-   font-weight: 700;
 }
 
 .tagcloud{
@@ -3478,60 +3388,6 @@ ul.wp-block-archives ul,
   text-decoration: none;
 }
 
-.rss-widget-icon{
-   position:relative;
-   top:-0.15rem;   
-}
-
-.widget_rss li {
-    margin-bottom: 2em;
-}
-
-.widget_rss cite {
-   display: block;
-   margin-bottom: 0.6em;
-   font-weight:700;
-}
-
-.widget_rss .rss-date{
-  display:block;
-  color:#969696;
-  font-size:0.9em;
-}
-
-.widget_rss .rsswidget{
-  text-decoration:underline;
-}
-
-.widget_rss .widget-title .rsswidget{
-	text-decoration:none;
-}
-
-.widget_rss .rsswidget:hover{
-  text-decoration:none;
-}
-
-.widget_search .search-form{
-  max-width:420px;
-}
-
-.widget_categories li{
-  margin-bottom: 0.5em;
-}
-
-.widget_categories li a{ 
-  color:inherit;
-  -webkit-transition: background-color 0.3s ease-in;
-  -o-transition: background-color 0.3s ease-in;
-  transition: background-color 0.3s ease-in;
-}
-
-.widget_categories li a:hover{
-  color:#c5a070;
-  text-decoration: none;
-}
-
-
 .blog-tags{
   margin-top: -0.7em;
 }
@@ -3555,39 +3411,6 @@ ul.wp-block-archives ul,
   color:#fff;
   background-color:#c5a070;
   text-decoration: none;
-}
-
-.widget_recent_entries ul{
-  margin-bottom: 0;
-}
-
-.widget_recent_entries ul li{
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top:1px solid #383838;
-}
-
-.widget_recent_entries ul li:first-child{
-  margin-top: 0;
-  border-top: 0;
-  padding-top: 0;
-}
-
-.widget_recent_entries ul li img{
-  border-radius: 3px;
-  opacity: 0.7;
-  -webkit-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
-
-.widget_recent_entries ul li a:hover{
-  color: #c5a070;
-  text-decoration: none;
-}
-
-.widget_recent_entries ul li a:hover img{
-  opacity: 1;
 }
 
 .recent-entries-title{ 

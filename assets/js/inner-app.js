@@ -9,8 +9,7 @@
     if (!path) return "";
     var clean = String(path).replace(/^\//, "").replace(/\?.*$/, "");
     clean = clean
-      .replace(/^wp-content\/uploads\//, "assets/images/uploads/")
-      .replace(/^wp-content\/plugins\/gtranslate\/flags\/24\//, "assets/images/flags/");
+      .replace(/^media\//, "assets/images/uploads/");
     return base + clean;
   }
 
@@ -185,9 +184,9 @@
   function renderFooter() {
     var site = DATA.site || {};
     return (
-      '<footer class="ah-jonny-footer"><div class="ah-jonny-footer__inner">' +
+      '<footer class="ah-site-footer"><div class="ah-site-footer__inner">' +
       "<span>DR. AHMED SHEIKH ELARAB</span>" +
-      '<div class="ah-jonny-footer__social">' +
+      '<div class="ah-site-footer__social">' +
       '<a href="' +
       site.social.instagram +
       '" target="_blank" rel="noreferrer">Instagram</a>' +
@@ -519,7 +518,7 @@
       "</h3>" +
       serviceBody(body, isAr) +
       '</article></div><div class="secondary col-md-4">' +
-      '<div class="widget jonny_author_"><h3 class="widget-title">' +
+      '<div class="widget ah-author-card"><h3 class="widget-title">' +
       t("تواصل معنا", "Get in Touch") +
       '</h3><img src="' +
       asset("/assets/images/doctor/DSC03751.jpg") +
@@ -528,7 +527,7 @@
       '" class="ah-service-sidebar-photo"><h4 class="widget-about-title">' +
       t("د. أحمد شيخ العرب", "Dr. Ahmed Sheikh Elarab") +
       '</h4></div>' +
-      '<div class="widget widget_block"><form class="wpcf7-form ah-service-sidebar-form"><div class="row">' +
+      '<div class="widget ah-widget-block"><form class="ah-contact-form ah-service-sidebar-form"><div class="row">' +
       '<div class="form-group col-sm-6"><input type="text" placeholder="' +
       t("الاسم*", "Name*") +
       '" required></div>' +
@@ -546,7 +545,7 @@
       '" target="_blank" rel="noreferrer" class="btn">' +
       t("إرسال عبر واتساب", "Send") +
       "</a></div></div></form></div>" +
-      '<div class="widget widget_categories"><h3 class="widget-title">' +
+      '<div class="widget ah-widget-list"><h3 class="widget-title">' +
       t("خدماتنا", "Our Services") +
       '</h3><ul class="ah-service-cat-list">' +
       (DATA.serviceDetails || [])
@@ -678,6 +677,7 @@
       blogs: renderBlogs,
       "not-found": renderNotFound,
     };
+    if ($("#ah-page").attr("data-static") === "1") return;
     var fn = map[page];
     if (fn) $("#ah-page").html(fn());
   }

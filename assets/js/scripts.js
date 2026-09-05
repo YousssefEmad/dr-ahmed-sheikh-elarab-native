@@ -242,7 +242,7 @@
     -------------------------------------------------------------------------------*/
 
 
-    var total = jonny_obj.max_num_pages;
+    var total = site_cfg.max_num_pages;
     var ajax = true;
     var count = 2;
 
@@ -265,19 +265,19 @@
 
     function loadArticle(pageNumber) {
         var ofset = $(".blog-list").length;
-        var cat = jonny_obj.cat;
+        var cat = site_cfg.cat;
         var is_sticky = "";
-        var tag = jonny_obj.tag;
-        var year = jonny_obj.year;
-        var monthnum = jonny_obj.monthnum;
-        var day = jonny_obj.day;
-        var type = jonny_obj.type;
-        var s = jonny_obj.s;
+        var tag = site_cfg.tag;
+        var year = site_cfg.year;
+        var monthnum = site_cfg.monthnum;
+        var day = site_cfg.day;
+        var type = site_cfg.type;
+        var s = site_cfg.s;
         jQuery('.load-more').attr('disabled', true);
         $.ajax({
-            url: jonny_obj.ajaxurl,
+            url: site_cfg.ajaxurl,
             type: 'POST',
-            data: "action=jonny_infinite_scroll&page_no=" + pageNumber + "&ofset=" + ofset +
+            data: "action=site_load_more&page_no=" + pageNumber + "&ofset=" + ofset +
             "&cat=" + cat + '&tag=' + tag + "&is_sticky=" + is_sticky + '&type=' + type,
             success: function (html) {
 
@@ -316,19 +316,19 @@
 
         var ofset = $(".row-blog").length;
         var is_sticky = "";
-        var tag = jonny_obj.tag;
-        var terms = jonny_obj.terms;
-        var year = jonny_obj.year;
-        var monthnum = jonny_obj.monthnum;
-        var day = jonny_obj.day;
-        var type = jonny_obj.type;
-        var s = jonny_obj.s;
+        var tag = site_cfg.tag;
+        var terms = site_cfg.terms;
+        var year = site_cfg.year;
+        var monthnum = site_cfg.monthnum;
+        var day = site_cfg.day;
+        var type = site_cfg.type;
+        var s = site_cfg.s;
 
 
         jQuery('.p-btn').attr('disabled', true);
 
         $.ajax({
-            url: jonny_obj.ajaxurl,
+            url: site_cfg.ajaxurl,
             type: 'POST',
             data: "action=portfolio_loadmore&page_no=" + pageNumber + "&ofset=" + ofset +
             "&terms=" + terms + '&tag=' + tag + "&is_sticky=" + is_sticky + '&type=' + type,

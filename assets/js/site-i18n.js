@@ -55,7 +55,7 @@
 
   function applyForm(lang) {
     var dir = lang === "ar" ? "rtl" : "ltr";
-    document.querySelectorAll(".wpcf7, .wpcf7-form").forEach(function (el) {
+    document.querySelectorAll(".ah-contact-form").forEach(function (el) {
       el.dir = dir;
       el.lang = lang === "ar" ? "ar" : "en";
     });
