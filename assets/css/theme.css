@@ -1,21 +1,4 @@
-/*
-Theme Name: jonny
-Theme URI: http://paul-themes.com/wp/jonny/jonny-demo//
-Author: VK
-Author URI: http://paul-themes.com/
-Description: jonny - Multipurpose WordPress theme
-Version: 1.0.7
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: custom-background, custom-colors, custom-header, custom-menu, featured-images, sticky-post, threaded-comments
-Text Domain: jonny
-
-*/
-
-
-/* =WordPress Core
--------------------------------------------------------------- */
-
+/* Theme alignment helpers */
 
 .alignnone {
     margin: 5px 20px 20px 0;
@@ -28,7 +11,7 @@ div.aligncenter {
 }
 
 .alignright {
-    float:right;
+    float: right;
     margin: 5px 0 20px 20px;
 }
 
@@ -57,32 +40,32 @@ a img.aligncenter {
     margin-right: auto;
 }
 
-.wp-caption {
+.media-caption {
     background: #fff;
     border: 1px solid #f0f0f0;
-    max-width: 96%; /* Image does not overflow the content area */
+    max-width: 96%;
     padding: 5px 3px 10px;
     text-align: center;
-	overflow:hidden;
+    overflow: hidden;
 }
 
-.wp-caption p{
-    margin-bottom:15px;
+.media-caption p {
+    margin-bottom: 15px;
 }
 
-.wp-caption.alignnone {
+.media-caption.alignnone {
     margin: 5px 20px 20px 0;
 }
 
-.wp-caption.alignleft {
+.media-caption.alignleft {
     margin: 5px 20px 20px 0;
 }
 
-.wp-caption.alignright {
+.media-caption.alignright {
     margin: 5px 0 20px 20px;
 }
 
-.wp-caption img {
+.media-caption img {
     border: 0 none;
     height: auto;
     margin: 0;
@@ -91,14 +74,13 @@ a img.aligncenter {
     width: auto;
 }
 
-.wp-caption p.wp-caption-text {
+.media-caption p.media-caption-text {
     font-size: 14px;
     line-height: 17px;
     margin: 0;
     padding: 0 4px 5px;
 }
 
-/* Text meant only for screen readers. */
 .screen-reader-text {
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute !important;
@@ -115,7 +97,6 @@ a img.aligncenter {
     clip: auto !important;
     color: #21759b;
     display: block;
-    font-size: 14px;
     font-size: 0.875rem;
     font-weight: bold;
     height: auto;
@@ -125,9 +106,8 @@ a img.aligncenter {
     text-decoration: none;
     top: 5px;
     width: auto;
-    z-index: 100000; /* Above WP toolbar. */
+    z-index: 100000;
 }
-
 
 .gallery-caption {
     color: #707070;
@@ -136,29 +116,19 @@ a img.aligncenter {
     line-height: 1.5;
     padding: 7px 0;
 }
+
 .bypostauthor {
     width: 100%;
 }
 
-@media (max-width: 782px){
-body.admin-bar {
-    position:static!important;
-	
-}
-.admin-bar  .navbar{
-		top:32px;
-	}
-}
-
-.admin-bar  .sidebar-menu {
-    top: 32px !important;
-}
 .logostiky {
     display: none;
 }
+
 .affix .enable_sticky_logo.logostiky {
     display: inline-block;
 }
+
 .affix .enable_sticky_logo.logoheader {
     display: none;
 }
@@ -166,10 +136,10 @@ body.admin-bar {
 .d-none {
     display: none;
 }
+
 .sticky {
     font-weight: normal;
 }
-
 
 iframe {
     max-width: 100%;

@@ -121,7 +121,7 @@ function writePage({ file, page, slug = "", title, description, canonical, base,
   <link rel="stylesheet" href="${base}assets/css/ionicons.min.css">
   <link rel="stylesheet" href="${base}assets/css/linearicons.css">
   <link rel="stylesheet" href="${base}assets/css/style.css">
-  <link rel="stylesheet" href="${base}assets/css/jonny-wp.css">
+  <link rel="stylesheet" href="${base}assets/css/theme.css">
   <link rel="stylesheet" href="${base}assets/css/uploads-style.css">
   <link rel="stylesheet" href="${base}assets/css/inner-site.css">
   <link rel="stylesheet" href="${base}assets/css/inner-service.css">

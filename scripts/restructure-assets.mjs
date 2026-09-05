@@ -40,7 +40,7 @@ for (const [from, to] of copies) {
 }
 
 const files = [
-  ["wp-content/themes/jonny/style.css", "assets/css/jonny-wp.css"],
+  ["wp-content/themes/jonny/style.css", "assets/css/theme.css"],
   ["wp-content/uploads/style.css", "assets/css/uploads-style.css"],
   ["wp-content/plugins/contact-form-7/includes/css/styles.css", "assets/css/contact-form-7.css"],
   ["wp-content/plugins/jonny_plugin/style.css", "assets/css/jonny-plugin.css"],
@@ -68,7 +68,7 @@ let html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const replacements = [
   ["/wp-content/themes/jonny/css/", "assets/css/"],
   ["/wp-content/themes/jonny/js/", "assets/js/"],
-  ["/wp-content/themes/jonny/style.css", "assets/css/jonny-wp.css"],
+  ["/wp-content/themes/jonny/style.css", "assets/css/theme.css"],
   ["/wp-content/uploads/style.css", "assets/css/uploads-style.css"],
   ["/wp-content/uploads/", "assets/images/uploads/"],
   ["/wp-content/plugins/contact-form-7/includes/css/styles.css", "assets/css/contact-form-7.css"],
