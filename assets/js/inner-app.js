@@ -72,7 +72,7 @@
     document.body.lang = lang;
     document.body.classList.toggle("lang-ar", lang === "ar");
     document.body.classList.toggle("lang-en", lang === "en");
-    document.body.classList.add("wp-theme-jonny", "notranslate");
+    document.body.classList.add("notranslate");
     document.body.setAttribute("translate", "no");
     $(".ah-shell, .ah-main").attr({ dir: dir, lang: lang });
   }
@@ -98,16 +98,6 @@
   function tiktokIcon() {
     return (
       '<svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.28 0 .54.04.79.1v3.5a6.4 6.4 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.2 8.2 0 0 0 4.76 1.52V6.84a4.84 4.84 0 0 1-1-.15z"/></svg>'
-    );
-  }
-
-  function langBtn(active) {
-    return (
-      "display:inline-flex;align-items:center;gap:6px;background:transparent;border:" +
-      (active ? "1px solid #c5a070" : "1px solid rgba(255,255,255,.3)") +
-      ";color:" +
-      (active === true ? "#c5a070" : "#fff") +
-      ";padding:6px 10px;cursor:pointer;"
     );
   }
 
@@ -141,15 +131,15 @@
       '<div class="menu-lang right-boxed"></div>' +
       '<ul id="menu-header-menu" class="menu-list right-boxed notranslate" translate="no">' +
       links +
-      '<li class="menu-item notranslate"><div style="display:flex;gap:12px;align-items:center;margin-top:8px">' +
-      '<button type="button" class="ah-set-lang" data-lang="en" style="' +
-      langBtn(lang === "en") +
-      '"><img src="' +
+      '<li class="menu-item notranslate"><div class="ah-menu-lang">' +
+      '<button type="button" class="ah-set-lang' +
+      (lang === "en" ? " is-active" : "") +
+      '" data-lang="en"><img src="' +
       flag("en-us.png") +
       '" width="24" height="24" alt="EN"> EN</button>' +
-      '<button type="button" class="ah-set-lang" data-lang="ar" style="' +
-      langBtn(lang === "ar") +
-      '"><img src="' +
+      '<button type="button" class="ah-set-lang' +
+      (lang === "ar" ? " is-active" : "") +
+      '" data-lang="ar"><img src="' +
       flag("ar.png") +
       '" width="24" height="24" alt="AR"> AR</button>' +
       "</div></li></ul>" +
@@ -283,7 +273,7 @@
             (src
               ? '<iframe src="' +
                 src +
-                '" title="Facebook Reel" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>'
+                '" title="Facebook Reel" width="267" height="476" class="ah-reel__frame" scrolling="no" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>'
               : "") +
             '<a class="ah-reel__link" href="' +
             url +
@@ -332,7 +322,7 @@
       asset(about.image) +
       '" alt="' +
       site.name +
-      '"><p style="margin-top:1rem"><a class="ah-btn" href="' +
+      '"><p class="ah-mt"><a class="ah-btn" href="' +
       site.whatsapp +
       '" target="_blank">' +
       t(site.whatsappLabelAr, site.whatsappLabelEn) +
@@ -402,7 +392,7 @@
       '</div><div class="ah-split"><div class="ah-prose">' +
       body +
       (s.noteAr || s.noteEn ? '<div class="ah-box">' + t(s.noteAr || "", s.noteEn || "") + "</div>" : "") +
-      '<p style="margin-top:1.5rem"><a class="ah-btn" href="' +
+      '<p class="ah-mt-lg"><a class="ah-btn" href="' +
       site.whatsapp +
       '" target="_blank">' +
       t(site.whatsappLabelAr, site.whatsappLabelEn) +
@@ -413,7 +403,7 @@
       t(s.titleAr, s.titleEn) +
       '"></div>' +
       reels(s.videos, t(s.videosTitleAr || "فيديوهات ذات صلة", s.videosTitleEn || "Related videos")) +
-      '<p style="margin-top:2rem"><a href="' +
+      '<p class="ah-mt-xl"><a href="' +
       href("/specialties") +
       '" class="ah-gold">' +
       t("← العودة للتخصصات", "← Back to specialties") +
@@ -451,7 +441,7 @@
         .join("") +
       '</ol><div class="ah-box ah-services-closing"><p>' +
       t(services.closingAr, services.closingEn) +
-      '</p><p style="margin-top:1rem"><a class="ah-btn" href="' +
+      '</p><p class="ah-mt"><a class="ah-btn" href="' +
       site.whatsapp +
       '" target="_blank" rel="noreferrer">' +
       t(site.whatsappLabelAr, site.whatsappLabelEn) +
@@ -609,16 +599,16 @@
       waPrefill +
       '" target="_blank" rel="noreferrer">' +
       t("إرسال رسالة / الحجز عبر واتساب", "Send message / book via WhatsApp") +
-      '</a></div><div class="ah-box"><h3 style="margin-top:0;color:#c5a070">' +
+      '</a></div><div class="ah-box"><h3>' +
       t("للحجز والاستفسار", "Booking & inquiries") +
       "</h3><p>" +
       t("واتساب / تليفون:", "WhatsApp / Phone:") +
       ' <a href="' +
       site.whatsapp +
-      '" dir="ltr" style="color:#c5a070">' +
+      '" dir="ltr" class="ah-contact-phone">' +
       site.phone +
       "</a></p></div>" +
-      '<h2 class="ah-gold" style="margin-top:2rem">' +
+      '<h2 class="ah-gold ah-mt-xl">' +
       t("عناوين الفروع", "Branch addresses") +
       '</h2><div class="ah-branches">' +
       (DATA.branches || [])
@@ -636,7 +626,7 @@
             b.titleEn +
             '" src="https://maps.google.com/maps?q=' +
             encodeURIComponent(b.addressEn) +
-            '&output=embed" width="100%" height="180" style="border:0;margin-top:.75rem" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></article>'
+            '&output=embed" width="100%" height="180" class="ah-branch-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></article>'
           );
         })
         .join("") +
@@ -664,11 +654,11 @@
       t("مقالات واخبار", "Blogs") +
       "</h1><p>" +
       t("مقالات وأخبار طب وجراحة العيون.", "Articles and news in ophthalmology.") +
-      '</p></div><div class="ah-card-grid"><article class="ah-card" style="cursor:default"><div class="ah-card__body"><div class="en">Welcome</div><h3>' +
+      '</p></div><div class="ah-card-grid"><article class="ah-card ah-card--static"><div class="ah-card__body"><div class="en">Welcome</div><h3>' +
       t("مرحبًا بكم في عيادة الدكتور أحمد شيخ العرب", "Welcome to Dr. Ahmed Sheikh Elarab Eye Clinics") +
       "</h3><p>" +
       t("رؤية أوضح تبدأ من التشخيص الصحيح والرعاية المتخصصة.", "Clearer vision starts with the right diagnosis and specialized care.") +
-      '</p><p style="margin-top:.8rem"><a href="' +
+      '</p><p class="ah-mt"><a href="' +
       href("/specialties") +
       '" class="ah-gold">' +
       t("تصفح التخصصات ←", "Browse specialties ←") +

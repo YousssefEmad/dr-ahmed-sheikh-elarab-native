@@ -235,10 +235,29 @@
     return "assets/js/home-i18n.json";
   }
 
+  function initContactForm() {
+    var form = document.querySelector(".ah-contact-form");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = (form.querySelector('[name="name"]') || {}).value || "";
+      var email = (form.querySelector('[name="email"]') || {}).value || "";
+      var subject = (form.querySelector('[name="subject"]') || {}).value || "";
+      var message = (form.querySelector('[name="text"]') || {}).value || "";
+      var text = [name, email, subject, message].filter(Boolean).join("\n");
+      window.open(
+        "https://wa.me/201554239529?text=" + encodeURIComponent(text),
+        "_blank",
+        "noopener"
+      );
+    });
+  }
+
   function start() {
     setLang(getLang());
     initHomeWidgets();
     initSidebarMenu();
+    initContactForm();
   }
 
   function boot() {
