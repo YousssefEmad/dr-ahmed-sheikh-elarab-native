@@ -184,43 +184,188 @@ function serviceBlocks(blocks = []) {
     .join("\n          ");
 }
 
+function sectionHead(badgeAr, badgeEn, titleAr, titleEn, leadAr = "", leadEn = "") {
+  return `<header class="ah-sec-head">
+      <p class="ah-kicker">${langPair(badgeEn, badgeAr)}</p>
+      <h2>${langPair(titleEn, titleAr)}</h2>
+      ${leadAr || leadEn ? `<p class="ah-sec-lead">${langPair(leadEn, leadAr)}</p>` : ""}
+    </header>`;
+}
+
 function aboutPageContent() {
   const img = String(about.image || "").replace(/^\//, "");
+  const highlights = (about.highlights || [])
+    .map(
+      (h) => `<article class="ah-highlight">
+        <h3>${langPair(h.titleEn, h.titleAr)}</h3>
+        <p>${langPair(h.textEn, h.textAr)}</p>
+      </article>`
+    )
+    .join("\n      ");
+
+  const stats = (about.stats || [])
+    .map(
+      (s) => `<article class="ah-stat">
+        <strong>${escapeHtml(s.value)}</strong>
+        <h3>${langPair(s.titleEn, s.titleAr)}</h3>
+        <p>${langPair(s.textEn, s.textAr)}</p>
+      </article>`
+    )
+    .join("\n      ");
+
+  const quals = (about.qualifications || [])
+    .map(
+      (q) => `<article class="ah-qual">
+        <span class="ah-qual__label">${escapeHtml(q.label)}</span>
+        <h3>${langPair(q.titleEn, q.titleAr)}</h3>
+        <p>${langPair(q.textEn, q.textAr)}</p>
+      </article>`
+    )
+    .join("\n      ");
+
+  const values = (about.coreValues || [])
+    .map(
+      (v) => `<li>
+        <strong>${langPair(v.titleEn, v.titleAr)}</strong>
+        <span>${langPair(v.textEn, v.textAr)}</span>
+      </li>`
+    )
+    .join("\n          ");
+
+  const techs = (about.technologies || [])
+    .map((t) => {
+      const src = assetPath(t.image, "");
+      return `<article class="ah-tech-card">
+        <div class="ah-tech-card__media">
+          <img src="${escapeAttr(src)}" alt="${escapeAttr(t.titleEn)}">
+          <span class="ah-tech-card__tag">${escapeHtml(t.tag)}</span>
+        </div>
+        <div class="ah-tech-card__body">
+          <h3>${langPair(t.titleEn, t.titleAr)}</h3>
+          <p>${langPair(t.textEn, t.textAr)}</p>
+        </div>
+      </article>`;
+    })
+    .join("\n      ");
+
+  const steps = (about.steps || [])
+    .map(
+      (s) => `<article class="ah-step">
+        <span class="ah-step__num">${escapeHtml(s.num)}</span>
+        <h3>${langPair(s.titleEn, s.titleAr)}</h3>
+        <p>${langPair(s.textEn, s.textAr)}</p>
+      </article>`
+    )
+    .join("\n      ");
+
+  const branchCards = branches
+    .map(
+      (b) => `<a class="ah-cta-branch" href="${escapeAttr(b.map)}" target="_blank" rel="noopener">
+        <strong>${langPair(b.titleEn, b.titleAr)}</strong>
+        <span>${langPair(b.addressEn, b.addressAr)}</span>
+      </a>`
+    )
+    .join("\n        ");
+
   return `
-    <div class="ah-page-hero">
-      <p class="ah-gold">${langPair(about.titleEn, about.titleAr)}</p>
-      <h1>${langPair(about.titleEn, about.titleAr)}</h1>
-      <p>${langPair(about.subtitleEn, about.subtitleAr)}</p>
+    <div class="ah-page-hero ah-page-hero--about">
+      <p class="ah-gold">${langPair(about.heroBadgeEn, about.heroBadgeAr)}</p>
+      <h1>${langPair(about.heroNameEn, about.heroNameAr)}</h1>
+      <p>${langPair(about.heroLeadEn, about.heroLeadAr)}</p>
     </div>
-    <div class="ah-split">
-      <div class="ah-prose">
-        ${about.introEn.map((p) => `<p data-lang-only="en">${escapeHtml(p)}</p>`).join("\n        ")}
-        ${about.introAr.map((p) => `<p data-lang-only="ar">${escapeHtml(p)}</p>`).join("\n        ")}
-        <h2>${langPair(about.experienceTitleEn, about.experienceTitleAr)}</h2>
-        <ul data-lang-only="en">
-          ${about.experienceEn.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n          ")}
-        </ul>
-        <ul data-lang-only="ar">
-          ${about.experienceAr.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n          ")}
-        </ul>
-        <div class="ah-box">
+
+    <div class="ah-highlights">
+      ${highlights}
+    </div>
+
+    <section class="ah-story">
+      <div class="ah-story__media" aria-hidden="true">
+        <div class="ah-liquid-stage ah-liquid-stage--portrait" data-liquid="${escapeAttr(img)}" data-fit="contain"></div>
+      </div>
+      <div class="ah-story__veil" aria-hidden="true"></div>
+      <div class="ah-story__body">
+        ${sectionHead(about.journeyBadgeAr, about.journeyBadgeEn, about.journeyTitleAr, about.journeyTitleEn)}
+        <div class="ah-prose">
+          ${(about.journeyEn || []).map((p) => `<p data-lang-only="en">${escapeHtml(p)}</p>`).join("\n          ")}
+          ${(about.journeyAr || []).map((p) => `<p data-lang-only="ar">${escapeHtml(p)}</p>`).join("\n          ")}
+        </div>
+        <blockquote class="ah-quote">
+          <p>${langPair(about.quoteEn, about.quoteAr)}</p>
+          <cite>${langPair(about.quoteByEn, about.quoteByAr)}</cite>
+        </blockquote>
+        <p class="ah-photo-badge">${langPair(about.photoBadgeEn, about.photoBadgeAr)}</p>
+        <div class="ah-cta-row">
+          <a class="ah-btn" href="${escapeAttr(site.whatsapp)}" target="_blank" rel="noopener">
+            ${langPair("Book via WhatsApp", "احجز استشارتك عبر واتساب")}
+          </a>
+          <a class="ah-btn ah-btn--ghost" href="tel:${escapeAttr(site.phoneTel)}">
+            ${langPair("Call the clinic", "اتصل بالعيادة مباشرة")}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ah-stats">
+      ${stats}
+    </section>
+
+    <section class="ah-section">
+      ${sectionHead(about.qualsBadgeAr, about.qualsBadgeEn, about.qualsTitleAr, about.qualsTitleEn, about.qualsLeadAr, about.qualsLeadEn)}
+      <div class="ah-qual-grid">
+        ${quals}
+      </div>
+    </section>
+
+    <section class="ah-section">
+      ${sectionHead(about.valuesBadgeAr, about.valuesBadgeEn, about.valuesTitleAr, about.valuesTitleEn, about.valuesLeadAr, about.valuesLeadEn)}
+      <div class="ah-values-grid">
+        <article class="ah-value-card">
           <h3>${langPair(about.visionTitleEn, about.visionTitleAr)}</h3>
           <p>${langPair(about.visionEn, about.visionAr)}</p>
-        </div>
-        <div class="ah-box">
+        </article>
+        <article class="ah-value-card">
           <h3>${langPair(about.missionTitleEn, about.missionTitleAr)}</h3>
           <p>${langPair(about.missionEn, about.missionAr)}</p>
-        </div>
+        </article>
+        <article class="ah-value-card">
+          <h3>${langPair(about.coreValuesTitleEn, about.coreValuesTitleAr)}</h3>
+          <ul class="ah-value-list">
+            ${values}
+          </ul>
+        </article>
       </div>
-      <div class="ah-media-frame">
-        <img src="${escapeAttr(img)}" alt="${escapeAttr(site.name)}">
-        <p class="ah-mt">
-          <a class="ah-btn" href="${escapeAttr(site.whatsapp)}" target="_blank" rel="noopener">
-            ${langPair(site.whatsappLabelEn, site.whatsappLabelAr)}
-          </a>
-        </p>
+    </section>
+
+    <section class="ah-section">
+      ${sectionHead(about.techBadgeAr, about.techBadgeEn, about.techTitleAr, about.techTitleEn, about.techLeadAr, about.techLeadEn)}
+      <div class="ah-tech-grid">
+        ${techs}
       </div>
-    </div>`;
+    </section>
+
+    <section class="ah-section">
+      ${sectionHead(about.stepsBadgeAr, about.stepsBadgeEn, about.stepsTitleAr, about.stepsTitleEn, about.stepsLeadAr, about.stepsLeadEn)}
+      <div class="ah-steps">
+        ${steps}
+      </div>
+    </section>
+
+    <section class="ah-about-cta">
+      <p class="ah-kicker">${langPair(about.ctaBadgeEn, about.ctaBadgeAr)}</p>
+      <h2>${langPair(about.ctaTitleEn, about.ctaTitleAr)}</h2>
+      <p>${langPair(about.ctaTextEn, about.ctaTextAr)}</p>
+      <div class="ah-cta-row">
+        <a class="ah-btn" href="${escapeAttr(site.whatsapp)}" target="_blank" rel="noopener">
+          ${langPair(site.whatsappLabelEn, site.whatsappLabelAr)}
+        </a>
+        <a class="ah-btn ah-btn--ghost" href="contact.html">
+          ${langPair("Contact us", "تواصل معنا")}
+        </a>
+      </div>
+      <div class="ah-cta-branches">
+        ${branchCards}
+      </div>
+    </section>`;
 }
 
 function specialtiesPageContent() {
@@ -261,8 +406,12 @@ function specialtyDetailContent(s) {
       <h1>${langPair(s.titleEn, s.titleAr)}</h1>
       ${s.summaryEn || s.summaryAr ? `<p>${langPair(s.summaryEn || "", s.summaryAr || "")}</p>` : ""}
     </div>
-    <div class="ah-split">
-      <div>
+    <section class="ah-story">
+      <div class="ah-story__media" aria-hidden="true">
+        <div class="ah-liquid-stage ah-liquid-stage--portrait" data-liquid="${escapeAttr(img)}" data-fit="contain"></div>
+      </div>
+      <div class="ah-story__veil" aria-hidden="true"></div>
+      <div class="ah-story__body">
         <div class="ah-prose" data-lang-only="en">
           ${renderSections(enBlocks)}
           ${s.noteEn ? `<div class="ah-box">${escapeHtml(s.noteEn)}</div>` : ""}
@@ -277,8 +426,7 @@ function specialtyDetailContent(s) {
           </a>
         </p>
       </div>
-      <img src="${escapeAttr(img)}" alt="${escapeAttr(s.titleEn)}">
-    </div>
+    </section>
     ${reelsHtml(s.videos || [], s.videosTitleEn || "Related videos", s.videosTitleAr || "فيديوهات ذات صلة")}
     <p class="ah-mt-xl"><a href="../specialties.html" class="ah-gold">${langPair("← Back to specialties", "← العودة للتخصصات")}</a></p>`;
 }

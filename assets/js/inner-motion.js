@@ -225,118 +225,6 @@
     });
   }
 
-  function wrapChars(el) {
-    if (el.dataset.splitDone === "1") return;
-    var walk = function (node) {
-      if (node.nodeType === 3) {
-        var parts = node.textContent.split(/(\s+)/);
-        var frag = document.createDocumentFragment();
-        parts.forEach(function (part) {
-          if (!part) return;
-          if (/^\s+$/.test(part)) {
-            frag.appendChild(document.createTextNode(part));
-            return;
-          }
-          var word = document.createElement("span");
-          word.className = "word";
-          Array.from(part).forEach(function (ch) {
-            var span = document.createElement("span");
-            span.className = "char";
-            span.textContent = ch;
-            word.appendChild(span);
-          });
-          frag.appendChild(word);
-        });
-        node.parentNode.replaceChild(frag, node);
-      } else if (node.nodeType === 1 && !node.classList.contains("char")) {
-        Array.from(node.childNodes).forEach(walk);
-      }
-    };
-    Array.from(el.childNodes).forEach(walk);
-    el.dataset.splitDone = "1";
-  }
-
-  var revealTweens = [];
-
-  function markRevealTargets() {
-    document
-      .querySelectorAll(
-        ".ah-page-hero h1, .ah-page-hero > p:not(.ah-gold), .ah-prose > h2, .ah-prose > h3, .ah-box > h3, .ah-reels__title, .ah-services-closing h2, .ah-service-banner h1, .ah-service-banner h2"
-      )
-      .forEach(function (el) {
-        el.classList.add("reveal-title");
-        el.setAttribute("data-reveal", "");
-      });
-  }
-
-  function setupTextReveal() {
-    if (reduce || !window.gsap || !window.ScrollTrigger) return;
-    var gsap = window.gsap;
-    gsap.registerPlugin(window.ScrollTrigger);
-
-    revealTweens.splice(0).forEach(function (tween) {
-      tween.kill();
-    });
-
-    markRevealTargets();
-
-    var rtl = document.documentElement.dir === "rtl";
-    var targets = document.querySelectorAll("[data-reveal]");
-
-    if (rtl) {
-      targets.forEach(function (el) {
-        var tween = gsap.fromTo(
-          el,
-          { color: "rgba(244,239,228,0.22)" },
-          {
-            color: "#ffffff",
-            textShadow: "0 0 22px rgba(255,255,255,0.28)",
-            ease: "none",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 82%",
-              end: "top 28%",
-              scrub: 1.1,
-            },
-          }
-        );
-        revealTweens.push(tween);
-      });
-      return;
-    }
-
-    targets.forEach(function (el) {
-      wrapChars(el);
-    });
-
-    targets.forEach(function (el) {
-      var chars = el.querySelectorAll(".char");
-      if (!chars.length) return;
-      var tween = gsap.fromTo(
-        chars,
-        {
-          color: "rgba(244,239,228,0.18)",
-          textShadow: "0 0 0 rgba(255,255,255,0)",
-          y: 18,
-        },
-        {
-          color: "#ffffff",
-          textShadow: "0 0 22px rgba(255,255,255,0.28)",
-          y: 0,
-          ease: "none",
-          stagger: 0.04,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 82%",
-            end: "top 28%",
-            scrub: 1.1,
-          },
-        }
-      );
-      revealTweens.push(tween);
-    });
-  }
-
   function runParallax() {
     if (reduce || !window.gsap || !window.ScrollTrigger) return;
     var gsap = window.gsap;
@@ -399,7 +287,7 @@
 
     gsap.utils
       .toArray(
-        ".ah-card, .ah-service-item, .ah-box, .ah-branch, .ah-reel, .ah-split, .ah-services-closing, .ah-service-page .secondary .widget, .ah-form .ah-btn, .ah-service-page .primary"
+        ".ah-card, .ah-service-item, .ah-box, .ah-branch, .ah-reel, .ah-story, .ah-services-closing, .ah-service-page .secondary .widget, .ah-form .ah-btn, .ah-service-page .primary"
       )
       .forEach(function (el, i) {
         gsap.fromTo(
@@ -440,15 +328,7 @@
       setTimeout(function () {
         runGsapIntro();
         runParallax();
-        setupTextReveal();
       }, 60);
-    });
-
-    window.addEventListener("ah-lang-change", function () {
-      setTimeout(function () {
-        setupTextReveal();
-        if (window.ScrollTrigger) window.ScrollTrigger.refresh();
-      }, 50);
     });
   }
 

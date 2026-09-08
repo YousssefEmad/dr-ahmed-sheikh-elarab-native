@@ -91,6 +91,268 @@ window.AH = {
     "titleEn": "About us",
     "subtitleAr": "نبذة عن الدكتور أحمد شيخ العرب",
     "subtitleEn": "About Dr. Ahmed Sheikh Elarab",
+    "heroBadgeAr": "استشاري طب وجراحة العيون والشبكية",
+    "heroBadgeEn": "Consultant Ophthalmologist & Retina Specialist",
+    "heroNameAr": "الدكتور أحمد شيخ العرب",
+    "heroNameEn": "Dr. Ahmed Sheikh Elarab",
+    "heroLeadAr": "دكتوراه في طب وجراحة العيون، وزميل الكلية الملكية للجراحين في إدنبرة (إنجلترا)، وعضو المجلس الطبي العالمي لطب العيون (سويسرا). أكثر من 15 عاماً من الخبرة الطبية والجراحية في جراحات الشبكية الدقيقة، إزالة المياه البيضاء، وأحدث تقنيات تصحيح الإبصار بالليزر.",
+    "heroLeadEn": "PhD in Ophthalmology, Fellow of the Royal College of Surgeons of Edinburgh (England), and member of the International Council of Ophthalmology (Switzerland). More than 15 years of medical and surgical experience in precise retina surgery, cataract removal, and advanced laser vision correction.",
+    "highlights": [
+      {
+        "titleAr": "دكتوراه طب وجراحة العيون",
+        "titleEn": "PhD in Ophthalmology",
+        "textAr": "أعلى مؤهل علمي تخصصي في طب وجراحة العيون",
+        "textEn": "Highest specialized academic degree in ophthalmology"
+      },
+      {
+        "titleAr": "زميل كلية الجراحين الملكية",
+        "titleEn": "Royal College Fellowship",
+        "textAr": "إدنبرة — المملكة المتحدة",
+        "textEn": "Edinburgh — United Kingdom"
+      },
+      {
+        "titleAr": "المجلس الطبي العالمي (ICO)",
+        "titleEn": "International Council (ICO)",
+        "textAr": "سويسرا — جنيف",
+        "textEn": "Geneva — Switzerland"
+      },
+      {
+        "titleAr": "الجمعية الأوروبية (ESCRS)",
+        "titleEn": "European Society (ESCRS)",
+        "textAr": "لجراحي المياه البيضاء وتصحيح الإبصار",
+        "textEn": "Cataract & refractive surgery society"
+      },
+      {
+        "titleAr": "15+ عاماً من الخبرة",
+        "titleEn": "15+ years of experience",
+        "textAr": "خبرة متخصصة في أدق جراحات العيون",
+        "textEn": "Specialized experience in precise eye surgery"
+      }
+    ],
+    "journeyBadgeAr": "خبرة ورؤية",
+    "journeyBadgeEn": "Experience & Vision",
+    "journeyTitleAr": "مسيرة علمية وجراحية مكرسة لحماية واستعادة نعمة الإبصار",
+    "journeyTitleEn": "A scientific and surgical journey dedicated to protecting and restoring sight",
+    "journeyAr": [
+      "الدكتور أحمد شيخ العرب هو استشاري طب وجراحة العيون، ومن المتخصصين في جراحات الشبكية والجسم الزجاجي، وعمليات المياه البيضاء الدقيقة (الفاكو)، وتصحيح عيوب الإبصار بأحدث تقنيات الليزر.",
+      "حصل الدكتور أحمد على درجة الدكتوراه في طب وجراحة العيون، وتوّج مسيرته العلمية بزمالة الكلية الملكية للجراحين بإدنبرة (إنجلترا)، إلى جانب عضوية المجلس الطبي العالمي لطب العيون في سويسرا، والجمعية الأوروبية لجراحي المياه البيضاء وتصحيح الإبصار، مع متابعة مستمرة لأحدث ما توصلت إليه التكنولوجيا الجراحية.",
+      "ترتكز فلسفته العلاجية على الجمع بين التشخيص الدقيق والتدخل الجراحي الآمن بأقل تدخل ممكن، مع رعاية إنسانية واهتمام فردي بكل مريض لضمان أعلى نسب النجاح وأسرع فترات التعافي واستعادة رؤية مستقرة."
+    ],
+    "journeyEn": [
+      "Dr. Ahmed Sheikh Elarab is a consultant ophthalmologist specializing in retina and vitreous surgery, precise cataract (phaco) procedures, and advanced laser vision correction.",
+      "He holds a PhD in Ophthalmology and completed his academic journey with a Fellowship of the Royal College of Surgeons of Edinburgh (England), along with membership of the International Council of Ophthalmology in Switzerland and the European Society of Cataract and Refractive Surgeons, while continuously following the latest surgical technologies.",
+      "His treatment philosophy combines precise diagnosis with safe, minimally invasive surgery, and personalized human care for every patient — aiming for the highest success rates, faster recovery, and stable vision restoration."
+    ],
+    "quoteAr": "الإبصار نعمة وأمانة؛ نحافظ عليها بتشخيص دقيق، وتدخل آمن، ورعاية تليق بثقة المريض.",
+    "quoteEn": "Sight is a blessing and a trust; we protect it with precise diagnosis, safe intervention, and care worthy of the patient’s confidence.",
+    "quoteByAr": "د. أحمد شيخ العرب",
+    "quoteByEn": "Dr. Ahmed Sheikh Elarab",
+    "photoBadgeAr": "15+ عاماً من الخبرة والتميز الجراحي",
+    "photoBadgeEn": "15+ years of surgical experience & excellence",
+    "stats": [
+      {
+        "value": "15+",
+        "titleAr": "عاماً من الخبرة الجراحية",
+        "titleEn": "Years of surgical experience",
+        "textAr": "خبرة تخصصية متواصلة في أدق جراحات الشبكية والعيون.",
+        "textEn": "Continuous specialized experience in precise retina and eye surgery."
+      },
+      {
+        "value": "10,000+",
+        "titleAr": "عملية وفحص دقيق ناجح",
+        "titleEn": "Successful procedures & exams",
+        "textAr": "آلاف الحالات التي تم التعامل معها بدقة ومتابعة دقيقة.",
+        "textEn": "Thousands of cases managed with precision and careful follow-up."
+      },
+      {
+        "value": "99.2%",
+        "titleAr": "نسبة رضا وتوصية المرضى",
+        "titleEn": "Patient satisfaction & recommendation",
+        "textAr": "ثقة المرضى والعائلات في جودة الرعاية والمتابعة.",
+        "textEn": "Patient and family trust in care quality and follow-up."
+      },
+      {
+        "value": "3",
+        "titleAr": "فروع مجهزة بأحدث التقنيات",
+        "titleEn": "Branches with advanced technology",
+        "textAr": "مدينة نصر، المهندسين، والتجمع الخامس.",
+        "textEn": "Nasr City, Mohandessin, and Fifth Settlement."
+      }
+    ],
+    "qualsBadgeAr": "اعتمادات مهنية ودولية",
+    "qualsBadgeEn": "Professional & international credentials",
+    "qualsTitleAr": "مؤهلات رفيعة وزمالات جراحية معتمدة عالمياً",
+    "qualsTitleEn": "High qualifications and internationally recognized surgical fellowships",
+    "qualsLeadAr": "سجل أكاديمي وجراحي معتمد من هيئات طبية عالمية في بريطانيا وسويسرا وأوروبا.",
+    "qualsLeadEn": "An academic and surgical record recognized by leading medical bodies in Britain, Switzerland, and Europe.",
+    "qualifications": [
+      {
+        "label": "DOCTORATE",
+        "titleAr": "دكتوراه في طب وجراحة العيون",
+        "titleEn": "PhD in Ophthalmology",
+        "textAr": "أعلى درجة علمية تخصصية في طب وجراحة العيون، مع تركيز على الجراحات الدقيقة للشبكية والمياه البيضاء.",
+        "textEn": "The highest specialized academic degree in ophthalmology, with focus on precise retina and cataract surgery."
+      },
+      {
+        "label": "FELLOWSHIP",
+        "titleAr": "زمالة الكلية الملكية للجراحين بإدنبرة",
+        "titleEn": "Royal College of Surgeons Fellowship, Edinburgh",
+        "textAr": "من أعرق الزمالات الجراحية عالمياً، وتشهد بالكفاءة والالتزام بأعلى المعايير المهنية.",
+        "textEn": "One of the world’s most prestigious surgical fellowships, reflecting excellence and high professional standards."
+      },
+      {
+        "label": "INTERNATIONAL",
+        "titleAr": "المجلس الطبي العالمي لطب العيون (ICO)",
+        "titleEn": "International Council of Ophthalmology (ICO)",
+        "textAr": "عضوية المجلس العالمي الرائد الذي يضع معايير تدريب أطباء وجراحي العيون حول العالم.",
+        "textEn": "Membership of the leading global council that sets training standards for ophthalmologists worldwide."
+      },
+      {
+        "label": "EUROPEAN SOCIETY",
+        "titleAr": "الجمعية الأوروبية للمياه البيضاء وتصحيح الإبصار",
+        "titleEn": "European Society of Cataract & Refractive Surgeons",
+        "textAr": "مواكبة أحدث الابتكارات في زراعة العدسات وجراحات الليزر الحديثة.",
+        "textEn": "Staying current with innovations in lens implantation and modern laser surgery."
+      },
+      {
+        "label": "SUBSPECIALTY",
+        "titleAr": "استشاري جراحات الشبكية والجسم الزجاجي",
+        "titleEn": "Consultant, Retina & Vitreous Surgery",
+        "textAr": "خبرة متقدمة في علاج انفصال الشبكية، اعتلال الشبكية السكري، وعمليات الجسم الزجاجي الدقيقة.",
+        "textEn": "Advanced experience treating retinal detachment, diabetic retinopathy, and precise vitreous surgery."
+      },
+      {
+        "label": "EXPERTISE",
+        "titleAr": "استشاري جراحات الفاكو وزراعة العدسات",
+        "titleEn": "Consultant, Phaco & Lens Implantation",
+        "textAr": "إزالة المياه البيضاء بأحدث التقنيات وزراعة عدسات متقدمة لتصحيح عيوب الإبصار المرتبطة.",
+        "textEn": "Cataract removal with advanced techniques and premium lenses for related refractive correction."
+      }
+    ],
+    "valuesBadgeAr": "رؤيتنا ورسالتنا",
+    "valuesBadgeEn": "Vision & Mission",
+    "valuesTitleAr": "رؤيتنا، رسالتنا، وقيمنا الجوهرية",
+    "valuesTitleEn": "Our vision, mission, and core values",
+    "valuesLeadAr": "منهج طبي متكامل يجمع بين الدقة العلمية والرعاية الإنسانية.",
+    "valuesLeadEn": "An integrated medical approach that combines scientific precision with human care.",
+    "visionTitleAr": "رؤيتنا",
+    "visionTitleEn": "Our Vision",
+    "visionAr": "أن نكون دائماً عند ثقة المريض، عبر رعاية متخصصة في طب وجراحة العيون تعتمد على الخبرة والدقة والتطور المستمر.",
+    "visionEn": "To always earn the patient’s trust through specialized ophthalmology care built on expertise, precision, and continuous development.",
+    "missionTitleAr": "رسالتنا",
+    "missionTitleEn": "Our Mission",
+    "missionAr": "هدفنا ليس فقط علاج المشكلة، بل تقديم تجربة طبية يشعر فيها المريض بالثقة والاطمئنان، ويحصل على أفضل رعاية ممكنة وفق حالته واحتياجاته.",
+    "missionEn": "Our goal is not only to treat the condition, but to provide a medical experience where patients feel confident and receive the best possible care for their needs.",
+    "coreValuesTitleAr": "قيمنا الجوهرية",
+    "coreValuesTitleEn": "Our Core Values",
+    "coreValues": [
+      {
+        "titleAr": "الأمانة والشفافية",
+        "titleEn": "Integrity & transparency",
+        "textAr": "شرح واضح للحالة وخيارات العلاج بدون مبالغة.",
+        "textEn": "Clear explanation of the condition and options, without exaggeration."
+      },
+      {
+        "titleAr": "الدقة والاحترافية",
+        "titleEn": "Precision & professionalism",
+        "textAr": "التزام بمعايير جراحية دقيقة في التشخيص والتدخل والمتابعة.",
+        "textEn": "Commitment to precise surgical standards in diagnosis, intervention, and follow-up."
+      },
+      {
+        "titleAr": "التطوير المستمر",
+        "titleEn": "Continuous development",
+        "textAr": "مواكبة أحدث التقنيات والأساليب في طب وجراحة العيون.",
+        "textEn": "Keeping pace with the latest techniques in ophthalmology."
+      },
+      {
+        "titleAr": "رعاية شخصية",
+        "titleEn": "Personalized care",
+        "textAr": "خطة علاجية تناسب كل حالة وظروف كل مريض.",
+        "textEn": "A treatment plan tailored to each case and each patient’s circumstances."
+      }
+    ],
+    "techBadgeAr": "التقنيات والتكنولوجيا",
+    "techBadgeEn": "Technology & equipment",
+    "techTitleAr": "أحدث التقنيات والتجهيزات الطبية في عياداتنا",
+    "techTitleEn": "The latest technologies and medical equipment in our clinics",
+    "techLeadAr": "تجهيزات حديثة لدعم التشخيص الدقيق والتدخل الآمن.",
+    "techLeadEn": "Modern equipment supporting precise diagnosis and safe intervention.",
+    "technologies": [
+      {
+        "tag": "Surgical Suite",
+        "titleAr": "غرف عمليات عيون مجهزة بأعلى معايير التعقيم",
+        "titleEn": "Eye operating rooms with high sterilization standards",
+        "textAr": "بيئة جراحية آمنة مخصصة لجراحات العيون الدقيقة.",
+        "textEn": "A safe surgical environment dedicated to precise eye procedures.",
+        "image": "/assets/images/doctor/DSC03584.jpg"
+      },
+      {
+        "tag": "OCT Scan",
+        "titleAr": "التصوير المقطعي للشبكية عالي الدقة (OCT)",
+        "titleEn": "High-precision retinal OCT imaging",
+        "textAr": "تشخيص أدق لحالات الشبكية والعصب البصري بتصوير ثلاثي الأبعاد.",
+        "textEn": "More accurate diagnosis of retina and optic-nerve conditions with 3D imaging.",
+        "image": "/assets/images/doctor/DSC03611.jpg"
+      },
+      {
+        "tag": "Diagnostic Suite",
+        "titleAr": "وحدات فحص رقمية متكاملة والمصباح الشقي",
+        "titleEn": "Integrated digital exam units & slit lamp",
+        "textAr": "فحوصات تفصيلية تساعد على بناء خطة علاجية واضحة منذ الزيارة الأولى.",
+        "textEn": "Detailed examinations that help build a clear treatment plan from the first visit.",
+        "image": "/assets/images/doctor/DSC03485.jpg"
+      },
+      {
+        "tag": "Laser Unit",
+        "titleAr": "وحدات ليزر متقدمة لتصحيح الإبصار وعلاج الشبكية",
+        "titleEn": "Advanced laser units for vision correction & retina care",
+        "textAr": "تقنيات ليزر حديثة لدعم خيارات العلاج غير الجراحي والجراحي حسب الحالة.",
+        "textEn": "Modern laser technologies supporting surgical and non-surgical options as needed.",
+        "image": "/assets/images/doctor/DSC03720.jpg"
+      }
+    ],
+    "stepsBadgeAr": "رحلتك العلاجية",
+    "stepsBadgeEn": "Your care journey",
+    "stepsTitleAr": "خطوات رعايتك الطبية من الاستشارة حتى الشفاء التام",
+    "stepsTitleEn": "Your medical care steps from consultation to full recovery",
+    "stepsLeadAr": "مسار منظم وواضح من أول زيارة وحتى المتابعة بعد العلاج.",
+    "stepsLeadEn": "A clear, organized path from the first visit through post-treatment follow-up.",
+    "steps": [
+      {
+        "num": "01",
+        "titleAr": "الفحص الطبي الشامل",
+        "titleEn": "Comprehensive medical examination",
+        "textAr": "تقييم دقيق للحالة باستخدام فحوصات متخصصة حسب الشكوى.",
+        "textEn": "A careful assessment using specialized tests based on your complaint."
+      },
+      {
+        "num": "02",
+        "titleAr": "الاستشارة والخطة المخصصة",
+        "titleEn": "Consultation & personalized plan",
+        "textAr": "شرح النتائج وخيارات العلاج واختيار الأنسب لحالتك.",
+        "textEn": "Explaining results and treatment options, then choosing what fits your case."
+      },
+      {
+        "num": "03",
+        "titleAr": "التدخل الجراحي الآمن",
+        "titleEn": "Safe surgical intervention",
+        "textAr": "تنفيذ الإجراء في بيئة مجهزة وبمعايير دقيقة عند الحاجة للجراحة.",
+        "textEn": "Performing the procedure in an equipped setting with precise standards when surgery is needed."
+      },
+      {
+        "num": "04",
+        "titleAr": "المتابعة الدورية المستمرة",
+        "titleEn": "Ongoing periodic follow-up",
+        "textAr": "متابعة النتائج وضمان استقرار الرؤية والتعافي الآمن.",
+        "textEn": "Monitoring outcomes to support stable vision and safe recovery."
+      }
+    ],
+    "ctaBadgeAr": "ابدأ رحلة وضوح الرؤية اليوم",
+    "ctaBadgeEn": "Start your clearer-vision journey today",
+    "ctaTitleAr": "جاهز لاستعادة وضوح وراحة عينيك؟",
+    "ctaTitleEn": "Ready to restore clarity and comfort to your eyes?",
+    "ctaTextAr": "احجز موعد استشارتك الآن مع الدكتور أحمد شيخ العرب في أحد فروعنا، واحصل على رعاية متخصصة وفق أعلى المعايير.",
+    "ctaTextEn": "Book your consultation now with Dr. Ahmed Sheikh Elarab at one of our branches, and receive specialized care to the highest standards.",
     "introAr": [
       "الدكتور أحمد شيخ العرب هو استشاري طب وجراحة العيون، متخصص في جراحات الشبكية والمياه البيضاء والليزر، ويجمع بين الخبرة الطبية المتخصصة والاهتمام بأدق التفاصيل لضمان تقديم رعاية متكاملة لكل مريض.",
       "حصل الدكتور أحمد على درجة الدكتوراه في طب وجراحة العيون، ويمتلك عددًا من العضويات الطبية الدولية، من بينها عضوية الكلية الملكية للجراحين في إدنبرة – إنجلترا، إلى جانب عضويته في المجلس الطبي العالمي لطب وجراحة العيون في سويسرا والجمعية الأوروبية لطب وجراحة العيون.",
@@ -108,27 +370,15 @@ window.AH = {
       "استشاري جراحات الشبكية والمياه البيضاء والليزر.",
       "عضو الكلية الملكية للجراحين في إدنبرة – إنجلترا.",
       "عضو المجلس الطبي العالمي لطب وجراحة العيون – سويسرا.",
-      "عضو الجمعية الأوروبية لطب وجراحة العيون.",
-      "خبرة في التعامل مع الحالات المختلفة التي تحتاج إلى تدخلات دقيقة في مجال الشبكية والمياه البيضاء وتصحيح الإبصار.",
-      "اهتمام مستمر بمتابعة أحدث التقنيات والأساليب الحديثة في تشخيص وعلاج أمراض العيون."
+      "عضو الجمعية الأوروبية لطب وجراحة العيون."
     ],
     "experienceEn": [
       "PhD in Ophthalmology.",
       "Consultant in retina, cataract, and laser surgeries.",
       "Member of the Royal College of Surgeons of Edinburgh, England.",
       "Member of the International Council of Ophthalmology, Switzerland.",
-      "Member of the European Society of Ophthalmology.",
-      "Experience managing cases that require precise interventions in retina, cataract, and refractive correction.",
-      "Continuous commitment to the latest techniques in diagnosing and treating eye diseases."
+      "Member of the European Society of Ophthalmology."
     ],
-    "visionTitleAr": "رؤيتنا",
-    "visionTitleEn": "Our Vision",
-    "visionAr": "أن نكون دائمًا عند ثقة المريض، من خلال تقديم رعاية متخصصة في طب وجراحة العيون تعتمد على الخبرة، الدقة، والتطور المستمر.",
-    "visionEn": "To always earn the patient’s trust by delivering specialized ophthalmology care built on expertise, precision, and continuous development.",
-    "missionTitleAr": "رسالتنا",
-    "missionTitleEn": "Our Mission",
-    "missionAr": "هدفنا ليس فقط علاج المشكلة، بل تقديم تجربة طبية يشعر فيها المريض بالثقة والاطمئنان، ويحصل خلالها على أفضل رعاية ممكنة وفق حالته واحتياجاته.",
-    "missionEn": "Our goal is not only to treat the problem, but to provide a medical experience where the patient feels confident and reassured, and receives the best possible care for their condition and needs.",
     "image": "/assets/images/doctor/DSC03751.jpg"
   },
   "specialties": [

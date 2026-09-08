@@ -213,6 +213,7 @@ body.ah-inner-clinic .brand img {
   text-transform: uppercase;
   color: var(--gold-soft) !important;
   background: transparent;
+  margin-top: 20px;
 }
 
 .ah-page-hero > .ah-gold::before {
@@ -228,18 +229,19 @@ body.ah-inner-clinic .brand img {
   font-family: var(--font-serif);
   font-size: clamp(2.8rem, 7vw, 5.2rem);
   margin: 0 auto 0.75rem;
-  color: rgba(244, 239, 228, 0.22);
+  color: var(--cream);
   letter-spacing: -0.03em;
   line-height: 0.98;
   font-weight: 500;
   max-width: 16ch;
+  margin: 30px 0px;
 }
 
 .ah-page-hero p {
-  color: rgba(244, 239, 228, 0.22);
+  color: var(--muted);
   margin: 0 auto;
   max-width: 36rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   font-family: var(--font-sans);
 }
@@ -331,8 +333,8 @@ body.ah-inner-clinic .brand img {
 .ah-card__body p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 1.02rem;
+  line-height: 1.6;
 }
 
 .ah-card--static {
@@ -354,9 +356,16 @@ body.ah-inner-clinic .brand img {
 }
 
 .ah-prose {
-  line-height: 1.9;
-  color: var(--cl-muted);
-  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--cl-ink);
+  font-size: 1.16rem;
+}
+
+.ah-prose p {
+  margin: 0 0 1.15rem;
+  font-size: 1.16rem;
+  line-height: 1.85;
+  color: var(--cl-ink);
 }
 
 .ah-prose h2,
@@ -378,11 +387,13 @@ body.ah-inner-clinic .brand img {
 .ah-prose li {
   position: relative;
   margin: 0;
-  padding: 0.85rem 1rem 0.85rem 2.4rem;
+  padding: 0.95rem 1.1rem 0.95rem 2.5rem;
   background: var(--cl-bg-soft);
   border: 1px solid var(--cl-line);
-  border-radius: 14px;
+  border-radius: 0;
   color: var(--cl-ink);
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
 
 html[dir="rtl"] .ah-prose li {
@@ -476,6 +487,8 @@ html[dir="rtl"] .ah-media-frame::before {
 .ah-box p {
   color: var(--cl-muted);
   margin-bottom: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 /* —— Services —— */
@@ -532,7 +545,7 @@ html[dir="rtl"] .ah-media-frame::before {
 
 .ah-service-item__body h3 {
   margin: 0 0 0.4rem;
-  font-size: 1.15rem;
+  font-size: 1.28rem;
   color: var(--cl-gold);
   font-family: var(--font-serif);
 }
@@ -540,7 +553,8 @@ html[dir="rtl"] .ah-media-frame::before {
 .ah-service-item__body p {
   margin: 0;
   color: var(--cl-muted);
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: 1.1rem;
 }
 
 .ah-services-closing {
@@ -1171,29 +1185,7 @@ body.ah-inner-clinic .site-line-glow::after {
   box-shadow: 0 0 16px #fff, 0 0 24px var(--gold-soft);
 }
 
-/* Scroll text illuminate (letter by letter) */
-body.ah-inner-clinic .reveal-title {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  color: rgba(244, 239, 228, 0.22) !important;
-  letter-spacing: -0.03em;
-}
-
-body.ah-inner-clinic .reveal-title .word {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-body.ah-inner-clinic .reveal-title .char {
-  display: inline-block;
-  will-change: color, text-shadow, transform;
-  color: rgba(244, 239, 228, 0.18);
-}
-
-html[dir="rtl"] body.ah-inner-clinic .reveal-title {
-  letter-spacing: 0;
-  line-height: 1.18;
-}
+/* Scroll text illuminate removed */
 
 .ah-tilt { transform-style: preserve-3d; }
 
@@ -1246,6 +1238,569 @@ html[dir="rtl"] body.ah-inner-clinic .reveal-title {
 }
 
 .ah-light-beams { display: none !important; }
+
+/* —— Story: portrait doctor liquid background —— */
+.ah-story {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  min-height: min(92vh, 980px);
+  margin: 0 0 3rem;
+  background: var(--void);
+}
+
+.ah-story__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  background: #07070a;
+}
+
+.ah-story .ah-liquid-stage--portrait {
+  position: relative;
+  inset: auto;
+  width: min(540px, 82vw);
+  aspect-ratio: 3 / 4;
+  max-height: min(88%, 860px);
+  height: auto;
+}
+
+.ah-story .ah-liquid-stage--portrait canvas,
+.ah-story .ah-liquid-stage--portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #07070a;
+}
+
+.ah-story .ah-liquid-stage--portrait::after {
+  display: none;
+}
+
+.ah-story__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(7, 7, 10, 0.42) 0%, rgba(7, 7, 10, 0.62) 38%, rgba(7, 7, 10, 0.88) 100%),
+    radial-gradient(ellipse at 50% 35%, rgba(7, 7, 10, 0.1), rgba(7, 7, 10, 0.78) 72%);
+}
+
+.ah-story__body {
+  position: relative;
+  z-index: 2;
+  width: min(760px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3.25rem 0 3.75rem;
+}
+
+.ah-story .ah-prose p,
+.ah-story .ah-prose li {
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.55);
+}
+
+.ah-story .ah-box,
+.ah-story .ah-prose li {
+  background: rgba(12, 12, 17, 0.72) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.ah-story .ah-prose h2,
+.ah-story .ah-prose h3,
+.ah-story .ah-box h3 {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 767px) {
+  .ah-story {
+    min-height: 0;
+  }
+
+  .ah-story .ah-liquid-stage--portrait {
+    width: min(420px, 88vw);
+    max-height: 70vh;
+  }
+
+  .ah-story__body {
+    padding: 2.4rem 0 2.8rem;
+  }
+}
+
+/* —— About page sections —— */
+.ah-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.ah-sec-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.4rem;
+}
+
+.ah-sec-head h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  color: var(--cream);
+}
+
+.ah-sec-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.ah-section {
+  margin: 0 0 4.5rem;
+}
+
+.ah-page-hero--about h1 {
+  max-width: 18ch;
+}
+
+.ah-page-hero--about > p:not(.ah-gold) {
+  max-width: 48rem;
+  font-size: 1.12rem;
+}
+
+.ah-highlights {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 3rem;
+}
+
+.ah-highlight {
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.72);
+  padding: 1.15rem 1rem;
+  min-height: 100%;
+}
+
+.ah-highlight h3 {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.25;
+}
+
+.ah-highlight p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.ah-story .ah-sec-head {
+  text-align: start;
+  margin-inline: 0;
+}
+
+.ah-quote {
+  margin: 1.75rem 0;
+  padding: 1.25rem 1.35rem;
+  border-inline-start: 3px solid var(--gold);
+  background: rgba(12, 12, 17, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.ah-quote p {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--gold-soft);
+  line-height: 1.55;
+}
+
+.ah-quote cite {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.ah-photo-badge {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.82);
+  color: var(--gold-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ah-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+.ah-btn--ghost {
+  background: transparent !important;
+  color: var(--cream) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+.ah-btn--ghost:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold-soft) !important;
+  box-shadow: none !important;
+}
+
+.ah-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 4.5rem;
+}
+
+.ah-stat {
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.55);
+  padding: 1.5rem 1.2rem;
+}
+
+.ah-stat strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+
+.ah-stat h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  color: var(--cream);
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
+
+.ah-stat p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.ah-qual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ah-qual {
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.55);
+  padding: 1.4rem 1.25rem 1.5rem;
+}
+
+.ah-qual__label {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--gold-soft);
+}
+
+.ah-qual h3 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.25;
+}
+
+.ah-qual p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.ah-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ah-value-card {
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.55);
+  padding: 1.5rem 1.3rem;
+}
+
+.ah-value-card h3 {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.ah-value-card > p {
+  margin: 0;
+  color: var(--cl-ink);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.ah-value-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.ah-value-list li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.ah-value-list strong {
+  color: var(--cream);
+  font-size: 1.02rem;
+}
+
+.ah-value-list span {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.ah-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.ah-tech-card {
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.55);
+  overflow: hidden;
+}
+
+.ah-tech-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0a0a0e;
+}
+
+.ah-tech-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.05);
+  display: block;
+}
+
+.ah-tech-card__tag {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--line);
+  background: rgba(7, 7, 10, 0.82);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--gold-soft);
+}
+
+.ah-tech-card__body {
+  padding: 1.25rem 1.25rem 1.4rem;
+}
+
+.ah-tech-card__body h3 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.25;
+}
+
+.ah-tech-card__body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.ah-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ah-step {
+  position: relative;
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.55);
+  padding: 1.5rem 1.2rem 1.4rem;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.ah-step__num {
+  position: absolute;
+  top: 0.55rem;
+  inset-inline-end: 0.7rem;
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: rgba(197, 160, 112, 0.18);
+  pointer-events: none;
+}
+
+.ah-step h3 {
+  position: relative;
+  margin: 2.2rem 0 0.55rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.ah-step p {
+  position: relative;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.ah-about-cta {
+  border: 1px solid var(--line);
+  background: rgba(12, 12, 17, 0.72);
+  padding: 2.6rem 1.6rem 2rem;
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.ah-about-cta h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.ah-about-cta > p {
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.ah-about-cta .ah-cta-row {
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ah-cta-branches {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 1.4rem;
+  text-align: start;
+}
+
+.ah-cta-branch {
+  display: block;
+  padding: 1rem;
+  border: 1px solid transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.ah-cta-branch:hover {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ah-cta-branch strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--gold-soft);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.ah-cta-branch span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 1100px) {
+  .ah-highlights,
+  .ah-stats,
+  .ah-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ah-qual-grid,
+  .ah-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .ah-highlights,
+  .ah-stats,
+  .ah-qual-grid,
+  .ah-values-grid,
+  .ah-tech-grid,
+  .ah-steps,
+  .ah-cta-branches {
+    grid-template-columns: 1fr;
+  }
+
+  .ah-page-hero--about h1 {
+    max-width: none;
+  }
+}
 
 body.ah-inner-clinic .ah-lang-home,
 body.ah-inner-clinic .ah-chaty-fab,

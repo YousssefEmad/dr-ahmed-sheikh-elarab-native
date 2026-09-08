@@ -14,12 +14,36 @@
     uniform sampler2D uTex;
     uniform vec2 uMouse;
     uniform vec2 uRes;
+    uniform vec2 uTexSize;
     uniform float uTime;
     uniform float uHover;
+    uniform float uFit;
+
+    vec2 fitUv(vec2 uv) {
+      float ca = max(uRes.x, 1.0) / max(uRes.y, 1.0);
+      float ia = max(uTexSize.x, 1.0) / max(uTexSize.y, 1.0);
+      vec2 scale = vec2(1.0);
+      if (uFit > 0.5) {
+        // contain — full image visible
+        if (ca > ia) scale = vec2(ia / ca, 1.0);
+        else scale = vec2(1.0, ca / ia);
+      } else {
+        // cover
+        if (ca > ia) scale = vec2(1.0, ca / ia);
+        else scale = vec2(ia / ca, 1.0);
+      }
+      return (uv - 0.5) / scale + 0.5;
+    }
 
     void main() {
-      vec2 uv = vUv;
-      vec2 mouse = vec2(uMouse.x, 1.0 - uMouse.y);
+      vec2 base = fitUv(vUv);
+      if (base.x < 0.0 || base.x > 1.0 || base.y < 0.0 || base.y > 1.0) {
+        gl_FragColor = vec4(0.027, 0.027, 0.039, 1.0);
+        return;
+      }
+
+      vec2 uv = base;
+      vec2 mouse = fitUv(vec2(uMouse.x, 1.0 - uMouse.y));
       vec2 aspect = vec2(uRes.x / uRes.y, 1.0);
       vec2 delta = (uv - mouse) * aspect;
       float dist = length(delta);
@@ -55,10 +79,12 @@
     constructor(el) {
       this.el = el;
       this.src = el.dataset.liquid;
+      this.fit = el.dataset.fit === "contain" ? 1 : 0;
       this.canvas = document.createElement("canvas");
       this.fallback = document.createElement("img");
       this.fallback.alt = "";
       this.fallback.src = this.src;
+      if (this.fit) this.fallback.style.objectFit = "contain";
       el.appendChild(this.canvas);
       this.mouse = { x: 0.5, y: 0.5 };
       this.target = { x: 0.5, y: 0.5 };
@@ -66,6 +92,7 @@
       this.hoverTarget = 0;
       this.visible = false;
       this.time = 0;
+      this.texSize = { x: 1, y: 1 };
       this.ok = this.initGL();
       if (!this.ok) {
         this.canvas.remove();
@@ -99,13 +126,16 @@
         uTex: gl.getUniformLocation(prog, "uTex"),
         uMouse: gl.getUniformLocation(prog, "uMouse"),
         uRes: gl.getUniformLocation(prog, "uRes"),
+        uTexSize: gl.getUniformLocation(prog, "uTexSize"),
         uTime: gl.getUniformLocation(prog, "uTime"),
         uHover: gl.getUniformLocation(prog, "uHover"),
+        uFit: gl.getUniformLocation(prog, "uFit"),
       };
       this.texture = gl.createTexture();
       const img = new Image();
       img.crossOrigin = "anonymous";
       img.onload = () => {
+        this.texSize = { x: img.naturalWidth || img.width || 1, y: img.naturalHeight || img.height || 1 };
         gl.bindTexture(gl.TEXTURE_2D, this.texture);
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
@@ -120,9 +150,13 @@
     }
 
     bind() {
-      const section = this.el.closest("section, .ah-page-hero, .ah-media-frame, .ah-service-banner") || this.el.parentElement || this.el;
+      const section =
+        this.el.closest(".ah-story, .ah-page-hero, .ah-media-frame, .ah-service-banner, section") ||
+        this.el.parentElement ||
+        this.el;
       section.addEventListener("pointermove", (e) => {
         const r = this.el.getBoundingClientRect();
+        if (!r.width || !r.height) return;
         this.target.x = (e.clientX - r.left) / r.width;
         this.target.y = (e.clientY - r.top) / r.height;
         this.hoverTarget = 1;
@@ -130,9 +164,12 @@
       section.addEventListener("pointerleave", () => {
         this.hoverTarget = 0;
       });
-      this.io = new IntersectionObserver((entries) => {
-        this.visible = entries[0].isIntersecting;
-      }, { threshold: 0.05 });
+      this.io = new IntersectionObserver(
+        (entries) => {
+          this.visible = entries[0].isIntersecting;
+        },
+        { threshold: 0.05 }
+      );
       this.io.observe(section);
       window.addEventListener("resize", () => this.resize());
     }
@@ -160,8 +197,10 @@
       gl.uniform1i(this.uniforms.uTex, 0);
       gl.uniform2f(this.uniforms.uMouse, this.mouse.x, this.mouse.y);
       gl.uniform2f(this.uniforms.uRes, this.canvas.width, this.canvas.height);
+      gl.uniform2f(this.uniforms.uTexSize, this.texSize.x, this.texSize.y);
       gl.uniform1f(this.uniforms.uTime, this.time);
       gl.uniform1f(this.uniforms.uHover, this.hover);
+      gl.uniform1f(this.uniforms.uFit, this.fit);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     }
   }
