@@ -24,15 +24,15 @@
       float ia = max(uTexSize.x, 1.0) / max(uTexSize.y, 1.0);
       vec2 scale = vec2(1.0);
       if (uFit > 0.5) {
-        // contain — full image visible
-        if (ca > ia) scale = vec2(ia / ca, 1.0);
-        else scale = vec2(1.0, ca / ia);
+        // contain — full image visible (letterbox / pillarbox)
+        if (ca > ia) scale = vec2(ca / ia, 1.0);
+        else scale = vec2(1.0, ia / ca);
       } else {
-        // cover
+        // cover — fill stage (may crop)
         if (ca > ia) scale = vec2(1.0, ca / ia);
         else scale = vec2(ia / ca, 1.0);
       }
-      return (uv - 0.5) / scale + 0.5;
+      return (uv - 0.5) * scale + 0.5;
     }
 
     void main() {
@@ -79,12 +79,15 @@
     constructor(el) {
       this.el = el;
       this.src = el.dataset.liquid;
-      this.fit = el.dataset.fit === "contain" ? 1 : 0;
+      // Default to contain so portraits stay fully visible on every page
+      this.fit = el.dataset.fit === "cover" ? 0 : 1;
       this.canvas = document.createElement("canvas");
       this.fallback = document.createElement("img");
       this.fallback.alt = "";
       this.fallback.src = this.src;
-      if (this.fit) this.fallback.style.objectFit = "contain";
+      this.fallback.style.objectFit = this.fit ? "contain" : "cover";
+      this.fallback.style.width = "100%";
+      this.fallback.style.height = "100%";
       el.appendChild(this.canvas);
       this.mouse = { x: 0.5, y: 0.5 };
       this.target = { x: 0.5, y: 0.5 };
@@ -136,6 +139,9 @@
       img.crossOrigin = "anonymous";
       img.onload = () => {
         this.texSize = { x: img.naturalWidth || img.width || 1, y: img.naturalHeight || img.height || 1 };
+        if (this.fit && this.el.classList.contains("ah-liquid-stage--portrait")) {
+          this.el.style.aspectRatio = this.texSize.x + " / " + this.texSize.y;
+        }
         gl.bindTexture(gl.TEXTURE_2D, this.texture);
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
@@ -144,6 +150,7 @@
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
         this.ready = true;
+        this.resize();
       };
       img.src = this.src;
       return true;

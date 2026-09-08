@@ -93,8 +93,9 @@
 
     if (!hero.querySelector("[data-liquid]")) {
       var stage = document.createElement("div");
-      stage.className = "ah-liquid-stage";
+      stage.className = "ah-liquid-stage ah-liquid-stage--hero";
       stage.setAttribute("aria-hidden", "true");
+      stage.setAttribute("data-fit", "contain");
       var imgs = [
         "assets/images/doctor/DSC03485.jpg",
         "assets/images/doctor/DSC03584.jpg",
@@ -104,6 +105,11 @@
       var pick = imgs[Math.floor(Math.random() * imgs.length)] || imgs[0];
       stage.setAttribute("data-liquid", basePath() + pick);
       hero.insertBefore(stage, hero.firstChild);
+    } else {
+      var existing = hero.querySelector("[data-liquid]");
+      if (existing && !existing.getAttribute("data-fit")) {
+        existing.setAttribute("data-fit", "contain");
+      }
     }
 
     return hero;
@@ -225,6 +231,40 @@
     });
   }
 
+  function runNavScroll() {
+    function bind(nav) {
+      if (!nav || nav.dataset.ahNavScroll === "1") return;
+      nav.dataset.ahNavScroll = "1";
+      function update() {
+        var y = window.scrollY || document.documentElement.scrollTop || 0;
+        if (window.__ahLenis && typeof window.__ahLenis.scroll === "number") {
+          y = window.__ahLenis.scroll;
+        }
+        nav.classList.toggle("is-scrolled", y > 24);
+      }
+      window.addEventListener("scroll", update, { passive: true });
+      if (window.__ahLenis) window.__ahLenis.on("scroll", update);
+      update();
+    }
+
+    var nav = document.querySelector(".navbar-2");
+    if (nav) {
+      bind(nav);
+      return;
+    }
+
+    var header = document.getElementById("site-header");
+    if (!header) return;
+    var mo = new MutationObserver(function () {
+      var found = document.querySelector(".navbar-2");
+      if (found) {
+        mo.disconnect();
+        bind(found);
+      }
+    });
+    mo.observe(header, { childList: true, subtree: true });
+  }
+
   function runParallax() {
     if (reduce || !window.gsap || !window.ScrollTrigger) return;
     var gsap = window.gsap;
@@ -322,6 +362,7 @@
     if (typeof window.AhLiquidBoot === "function") window.AhLiquidBoot();
     runCursor();
     runLenis();
+    runNavScroll();
     runLineGlows();
     runTilt();
     window.requestAnimationFrame(function () {
