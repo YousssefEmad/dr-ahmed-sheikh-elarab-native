@@ -212,7 +212,7 @@ function aboutPageContent() {
           <p>${langPair(about.missionEn, about.missionAr)}</p>
         </div>
       </div>
-      <div>
+      <div class="ah-media-frame">
         <img src="${escapeAttr(img)}" alt="${escapeAttr(site.name)}">
         <p class="ah-mt">
           <a class="ah-btn" href="${escapeAttr(site.whatsapp)}" target="_blank" rel="noopener">
@@ -478,7 +478,7 @@ function writePage({ file, page, slug = "", title, description, canonical, base,
   <meta property="og:url" content="${canonical}">
   <meta property="og:image" content="https://drahmed-sheikhelarab.com/assets/images/logo/site-logo.png">
   <link rel="icon" href="${base}assets/images/logo/site-logo.png" type="image/png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Poppins:400,500,600,700|Tajawal:400,500,600,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="${base}assets/css/bootstrap.css">
   <link rel="stylesheet" href="${base}assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="${base}assets/css/ionicons.min.css">
@@ -488,8 +488,9 @@ function writePage({ file, page, slug = "", title, description, canonical, base,
   <link rel="stylesheet" href="${base}assets/css/uploads-style.css">
   <link rel="stylesheet" href="${base}assets/css/inner-site.css">
   <link rel="stylesheet" href="${base}assets/css/inner-service.css">
+  <link rel="stylesheet" href="${base}assets/css/animate.min.css">
 </head>
-<body class="menu-is-closed${extraClass}" data-page="${page}" data-slug="${slug}">
+<body class="menu-is-closed ah-inner-clinic${extraClass}" data-page="${page}" data-slug="${slug}">
   <div class="ah-shell">
     <div id="site-header"></div>
     <main class="ah-main" id="ah-page"${content ? ' data-static="1"' : ""}>${content}</main>
@@ -501,6 +502,12 @@ function writePage({ file, page, slug = "", title, description, canonical, base,
   <script src="${base}assets/js/bootstrap.min.js"></script>
   <script src="${base}assets/js/data.js"></script>
   <script src="${base}assets/js/inner-app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="${base}assets/js/wow.min.js"></script>
+  <script src="${base}assets/js/inner-motion.js"></script>
+  <script src="${base}assets/js/liquid.js"></script>
 </body>
 </html>
 `;

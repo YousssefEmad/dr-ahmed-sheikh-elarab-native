@@ -154,9 +154,7 @@
       '" class="icon ah-tiktok" aria-label="TikTok">' +
       tiktokIcon() +
       "</a></div><div class=\"copy\">DR. AHMED SHEIKH ELARAB</div></div></div>" +
-      '<header class="navbar navbar-2 navbar-white boxed notranslate' +
-      (page === "service-detail" ? " navbar-fixed" : "") +
-      '" translate="no"><div class="navbar-bg"></div>' +
+      '<header class="navbar navbar-2 navbar-white boxed navbar-fixed notranslate" translate="no"><div class="navbar-bg"></div>' +
       '<button type="button" class="navbar-toggle" aria-expanded="false"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>' +
       '<a class="brand" href="' +
       href("/") +
